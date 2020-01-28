@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Data Storage</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<style>
+  .incomplete {
+    color: rgb(255, 94, 94);
+  }
+
+  ​ .complete {
+    color: green;
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <header>
+        <h1 class="d-flex flex-row" id="nameHeader"></h1>
+      </header>
+
+      <form>
+        <p>
+          <label for="item">Full Name</label>
+          <input type="text" name="item" id="item" placeholder="John Doe">
+        </p>
+        <p>
+          <button id="addItem">Submit</button>
+        </p>
+      </form>
+      <ul id="items"></ul>
+    </div>
+    <div class="footer"></div>
+  </div>
+  </div>
+</body>
+
+
+<script>
+  $(document).ready(function () {
+
+    let items = JSON.parse(localStorage.getItem('items')) || []
+
+    const renderItems = _ => {
+      document.getElementById('items').innerHTML = ''
+      for (let i = 0; i < items.length; i++) {
+        let itemElem = document.createElement('li')
+        itemElem.className = items[i].isName ? 'complete' : 'incomplete'
+        itemElem.innerHTML = `
+        ${items[i].text}
+        <button class="markDone" value="${i}">✓</button>
+        <button class="removeItem" value="${i}">X</button>
+        `
+
+        document.getElementById('items').append(itemElem)
+        
+      }
+    }
+
+    const markDone = index => {
+      items[index].isName = !items[index].isName
+      localStorage.setItem('items', JSON.stringify(items))
+      renderItems()
+    }
+
+    const removeItem = index => {
+      items.splice(index, 1)
+      localStorage.setItem('items', JSON.stringify(items))
+      renderItems()
+    }
+
+    document.getElementById('addItem').addEventListener('click', event => {
+      event.preventDefault()
+      items.push({
+        text: document.getElementById('item').value,
+        isName: true
+      })
+      localStorage.setItem('items', JSON.stringify(items))
+      renderItems()
+      $("#nameHeader").html = $("#item").value
+      document.getElementById('item').value = ''
+    })
+
+    document.addEventListener('click', event => {
+      if (event.target.className === 'markDone') {
+        markDone(event.target.value)
+      } else if (event.target.className === 'removeItem') {
+        removeItem(event.target.value)
+      }
+    })
+    renderItems()
+
+
+  });
+</script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</html>

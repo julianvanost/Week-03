@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Functions and Selectors</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<style>
+
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <header>
+        <h1 class="d-flex flex-row" id="nameHeader">jQuery Functions and Selectors</h1>
+      </header>
+      <div id="message">0</div>
+      <div class="footer"></div>
+      <button id="myBtn" class="btn-primary">Click Me!</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  $(document).ready(function () {
+
+    
+    let count = 0
+    $("#myBtn").on('click', () => {
+      count++
+      $("#message").text(count)
+    })
+
+
+  })
+</script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</html>

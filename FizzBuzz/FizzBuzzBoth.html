@@ -1,0 +1,51 @@
+<!-- Loop over numbers 1-100
+If the number is divisible by 3, log the word ‘Fizz’ to the console
+If the number is divisible by 5, log the word ‘Buzz’ to the console
+If the number is divisible by both 3 and 5, log the word ‘FizzBuzz’ to the console
+If the number is not divisible by either, simply log the number itself to the console -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" type="text/css">
+  <title>Fizz Buzz Both</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+  // let i = 100;
+  $(document).ready(function () {
+    const FuzzBuzz = function (event) {
+      let fizz = 'Fizz'
+      let buzz = 'buzz'
+      let fizzBuzz = 'FizBuzz'
+      for (let i = 0; i < 100; i++) {
+        // if ((i % 3) + (i % 5) === 0) { // simpler logic below; instead using "Falsey" operators to check 'if (!(valueTrue)) {then doThis() } '
+        if (!(i & 15)) {
+          console.log(fizzBuzz)
+      } else if (!(i % 3)) {
+        console.log(fizz)
+      } else if (!(i % 5)) {
+        console.log(buzz)
+      } else {
+        console.log(i)
+      }
+    }
+
+  }
+  FuzzBuzz()
+  });
+</script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+</html>

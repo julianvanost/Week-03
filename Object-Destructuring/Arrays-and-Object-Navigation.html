@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Array Methods</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<style>
+
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <header>
+        <h1 class="d-flex flex-row" id="nameHeader">Array Methods : Object Destructuring</h1>
+      </header>
+      <div class="footer"></div>
+    </div>
+  </div>
+</body>
+
+<script>
+  $(document).ready(function () {
+
+    //  let arr = [1, 2, 3, 4, 5]
+    //  let [a, b, c, d, e] = arr
+    //  console.log(a, b, c, d, e)
+    //OR
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    for (let i = 0; i < arr.length; i++) {
+      // console.log(arr[i])
+    }
+
+    /*Array Methods:*/
+    //for each method for arrays, the below shows all args/params the method takes
+
+    arr.forEach((elem, i, theArray) => {
+      if (i % 2) {
+        console.log(i + "is even = " + true)
+      } else
+        console.log(i + "is even = " + false)
+    });
+    //OR
+    // Super-fancy arrow function!!
+    let advancedArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    advancedArr.forEach((elem, i, theArray) => {
+      console.log(!(i % 2) ? true : false)
+    })
+
+
+    //Map method: 
+    let users = ['John Doe', 'Jane Doe', 'Jack Doe', 'Jan Doe']
+    let userObjs = users.map((user, i) => {
+      return {
+        id: i,
+        name: user
+      }
+      console.log(users)
+      console.log(userObjs)
+    })
+
+    //Filter Method
+    let filterArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let evenArr = filterArr.filter(x => {
+      return x % 2 === 0
+      console.log(filterArr)
+      console.log(evenArr)
+    })
+  })
+</script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</html>
